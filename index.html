@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lupil | Gamer & Profile</title>
-  <meta name="description" content="Personal gamer profile and accomplishments showcase of Lupil.">
+  <title>Lupil | Gamer & Game Dev Profile</title>
+  <meta name="description" content="Personal gamer profile, accomplishments, niche finds, and game dev projects of Lupil.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -15,12 +15,12 @@
        ========================================================================== */
     :root {
       /* Dark Theme Default */
-      --bg-gradient: radial-gradient(circle at 50% 0%, #171c2d 0%, #0b0f19 70%);
+      --bg-gradient: radial-gradient(circle at 50% 0%, #171c2d 0%, #0b0f19 75%);
       --bg-color: #0b0f19;
-      --card-bg: rgba(22, 28, 45, 0.7);
-      --card-bg-hover: rgba(30, 39, 64, 0.85);
+      --card-bg: rgba(22, 28, 45, 0.75);
+      --card-bg-hover: rgba(30, 39, 64, 0.9);
       --card-border: rgba(255, 255, 255, 0.08);
-      --card-border-hover: rgba(139, 92, 246, 0.4);
+      --card-border-hover: rgba(168, 85, 247, 0.4);
       --text-main: #f1f5f9;
       --text-muted: #94a3b8;
       --text-dim: #64748b;
@@ -32,11 +32,28 @@
       --accent-amber: #f59e0b;
       --accent-rose: #f43f5e;
 
-      --badge-bg: rgba(168, 85, 247, 0.15);
-      --badge-border: rgba(168, 85, 247, 0.3);
-      --badge-text: #c084fc;
+      /* Status Colors */
+      --status-active-bg: rgba(16, 185, 129, 0.15);
+      --status-active-border: rgba(16, 185, 129, 0.35);
+      --status-active-text: #34d399;
 
-      --shadow-color: rgba(0, 0, 0, 0.35);
+      --status-occ-bg: rgba(6, 182, 212, 0.15);
+      --status-occ-border: rgba(6, 182, 212, 0.35);
+      --status-occ-text: #38bdf8;
+
+      --status-niche-bg: rgba(245, 158, 11, 0.15);
+      --status-niche-border: rgba(245, 158, 11, 0.35);
+      --status-niche-text: #fbbf24;
+
+      --status-comp-bg: rgba(168, 85, 247, 0.15);
+      --status-comp-border: rgba(168, 85, 247, 0.35);
+      --status-comp-text: #c084fc;
+
+      --status-ret-bg: rgba(244, 63, 94, 0.12);
+      --status-ret-border: rgba(244, 63, 94, 0.25);
+      --status-ret-text: #fb7185;
+
+      --shadow-color: rgba(0, 0, 0, 0.4);
       --glow-color: rgba(168, 85, 247, 0.2);
       --toggle-bg: rgba(255, 255, 255, 0.1);
       --toggle-border: rgba(255, 255, 255, 0.15);
@@ -44,9 +61,9 @@
     }
 
     [data-theme="light"] {
-      --bg-gradient: radial-gradient(circle at 50% 0%, #f1f5f9 0%, #e2e8f0 70%);
+      --bg-gradient: radial-gradient(circle at 50% 0%, #f8fafc 0%, #e2e8f0 75%);
       --bg-color: #e2e8f0;
-      --card-bg: rgba(255, 255, 255, 0.85);
+      --card-bg: rgba(255, 255, 255, 0.88);
       --card-bg-hover: rgba(255, 255, 255, 1);
       --card-border: rgba(0, 0, 0, 0.08);
       --card-border-hover: rgba(124, 58, 237, 0.35);
@@ -61,9 +78,25 @@
       --accent-amber: #d97706;
       --accent-rose: #e11d48;
 
-      --badge-bg: rgba(124, 58, 237, 0.1);
-      --badge-border: rgba(124, 58, 237, 0.25);
-      --badge-text: #6d28d9;
+      --status-active-bg: rgba(5, 150, 105, 0.1);
+      --status-active-border: rgba(5, 150, 105, 0.3);
+      --status-active-text: #047857;
+
+      --status-occ-bg: rgba(8, 145, 178, 0.1);
+      --status-occ-border: rgba(8, 145, 178, 0.3);
+      --status-occ-text: #0e7490;
+
+      --status-niche-bg: rgba(217, 119, 6, 0.1);
+      --status-niche-border: rgba(217, 119, 6, 0.3);
+      --status-niche-text: #b45309;
+
+      --status-comp-bg: rgba(124, 58, 237, 0.1);
+      --status-comp-border: rgba(124, 58, 237, 0.3);
+      --status-comp-text: #6d28d9;
+
+      --status-ret-bg: rgba(225, 29, 72, 0.08);
+      --status-ret-border: rgba(225, 29, 72, 0.25);
+      --status-ret-text: #be123c;
 
       --shadow-color: rgba(15, 23, 42, 0.08);
       --glow-color: rgba(124, 58, 237, 0.15);
@@ -72,9 +105,6 @@
       --grid-pattern: radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px);
     }
 
-    /* ==========================================================================
-       BASE RESETS & TYPOGRAPHY
-       ========================================================================== */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -96,7 +126,6 @@
       position: relative;
     }
 
-    /* Ambient Background Grid Pattern */
     body::before {
       content: "";
       position: absolute;
@@ -110,16 +139,14 @@
 
     .app-container {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1240px;
       z-index: 1;
       display: flex;
       flex-direction: column;
-      gap: 2.5rem;
+      gap: 3rem;
     }
 
-    /* ==========================================================================
-       HEADER & NAVIGATION
-       ========================================================================== */
+    /* Header */
     header {
       display: flex;
       justify-content: space-between;
@@ -136,8 +163,8 @@
     }
 
     .brand-logo-small {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       border: 2px solid var(--accent-purple);
       object-fit: cover;
@@ -152,7 +179,6 @@
       -webkit-text-fill-color: transparent;
     }
 
-    /* Theme Switcher Toggle */
     .theme-toggle-btn {
       background: var(--toggle-bg);
       border: 1px solid var(--toggle-border);
@@ -176,9 +202,7 @@
       box-shadow: 0 6px 16px var(--glow-color);
     }
 
-    /* ==========================================================================
-       HERO / PROFILE SECTION
-       ========================================================================== */
+    /* Hero Section */
     .hero-section {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -197,13 +221,10 @@
     .hero-section::after {
       content: "";
       position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 300px;
-      height: 300px;
+      top: -50%; right: -20%;
+      width: 320px; height: 320px;
       background: radial-gradient(circle, var(--accent-purple) 0%, transparent 70%);
-      opacity: 0.15;
-      filter: blur(50px);
+      opacity: 0.15; filter: blur(50px);
       pointer-events: none;
     }
 
@@ -229,10 +250,8 @@
 
     .status-dot {
       position: absolute;
-      bottom: -4px;
-      right: -4px;
-      width: 22px;
-      height: 22px;
+      bottom: -4px; right: -4px;
+      width: 22px; height: 22px;
       background-color: var(--accent-emerald);
       border: 3.5px solid var(--bg-color);
       border-radius: 50%;
@@ -266,7 +285,6 @@
       30% { transform: rotate(14deg); }
       40% { transform: rotate(-4deg); }
       50% { transform: rotate(10deg); }
-      60% { transform: rotate(0deg); }
     }
 
     .hero-name {
@@ -278,51 +296,61 @@
 
     .hero-tagline {
       color: var(--text-muted);
-      font-size: 1.125rem;
+      font-size: 1.1rem;
       line-height: 1.6;
-      max-width: 650px;
+      max-width: 680px;
     }
 
-    /* Discord Copy Badge */
-    .discord-badge-btn {
+    .badge-group {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .id-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      background: var(--badge-bg);
-      border: 1px solid var(--badge-border);
-      color: var(--badge-text);
-      padding: 0.6rem 1.1rem;
-      border-radius: 12px;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 0.5rem 0.9rem;
+      border-radius: 10px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 600;
       cursor: pointer;
-      width: fit-content;
       position: relative;
     }
 
-    .discord-badge-btn:hover {
-      background: rgba(168, 85, 247, 0.25);
+    .id-badge:hover {
       border-color: var(--accent-purple);
+      background: var(--toggle-bg);
       transform: translateY(-2px);
     }
 
-    .discord-icon {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
+    .id-badge.discord {
+      background: var(--status-comp-bg);
+      border-color: var(--status-comp-border);
+      color: var(--status-comp-text);
     }
 
-    .copy-toast {
+    .id-badge.valo {
+      background: var(--status-ret-bg);
+      border-color: var(--status-ret-border);
+      color: var(--status-ret-text);
+    }
+
+    .toast-popup {
       position: absolute;
-      top: -35px;
-      left: 50%;
+      top: -36px; left: 50%;
       transform: translateX(-50%) translateY(5px);
       background: var(--accent-emerald);
       color: #fff;
       font-size: 0.75rem;
       font-family: 'Outfit', sans-serif;
-      padding: 0.35rem 0.75rem;
+      padding: 0.3rem 0.65rem;
       border-radius: 6px;
       font-weight: 600;
       opacity: 0;
@@ -332,21 +360,19 @@
       box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
     }
 
-    .copy-toast.show {
+    .toast-popup.show {
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
 
-    /* ==========================================================================
-       GAMES SHOWCASE HEADER & CONTROLS
-       ========================================================================== */
+    /* Section Headers */
     .section-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       flex-wrap: wrap;
       gap: 1rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
 
     .section-title {
@@ -364,29 +390,30 @@
       margin-top: 0.25rem;
     }
 
-    /* Controls: Filter Pills & Scroll Buttons */
+    /* Filter Pills & Navigation */
     .controls-wrapper {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.75rem;
       flex-wrap: wrap;
     }
 
     .filter-tabs {
       display: flex;
       background: var(--card-bg);
-      padding: 0.25rem;
-      border-radius: 12px;
+      padding: 0.3rem;
+      border-radius: 14px;
       border: 1px solid var(--card-border);
-      gap: 0.25rem;
+      gap: 0.3rem;
+      flex-wrap: wrap;
     }
 
     .filter-btn {
       background: transparent;
       border: none;
       color: var(--text-muted);
-      padding: 0.4rem 0.85rem;
-      border-radius: 8px;
+      padding: 0.45rem 0.85rem;
+      border-radius: 9px;
       font-family: inherit;
       font-size: 0.85rem;
       font-weight: 600;
@@ -394,27 +421,20 @@
     }
 
     .filter-btn.active, .filter-btn:hover {
-      background: var(--badge-bg);
-      color: var(--badge-text);
-    }
-
-    .scroll-arrow-btns {
-      display: flex;
-      gap: 0.5rem;
+      background: var(--accent-purple);
+      color: #fff;
+      box-shadow: 0 4px 12px var(--glow-color);
     }
 
     .arrow-btn {
-      width: 38px;
-      height: 38px;
+      width: 38px; height: 38px;
       border-radius: 10px;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       color: var(--text-main);
       font-size: 1.1rem;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
     }
 
     .arrow-btn:hover {
@@ -423,15 +443,13 @@
       color: var(--accent-purple);
     }
 
-    /* ==========================================================================
-       HORIZONTAL CAROUSEL & GRID CARDS
-       ========================================================================== */
+    /* Cards Scroll Horizontal Container */
     .cards-scroll-container {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.35rem;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      padding: 0.75rem 0.25rem 1.5rem;
+      padding: 0.5rem 0.25rem 1.5rem;
       scrollbar-width: thin;
       scrollbar-color: var(--accent-purple) transparent;
     }
@@ -445,49 +463,53 @@
       border-radius: 10px;
     }
 
-    /* Game Card Styling */
+    /* Game Card */
     .game-card {
-      flex: 0 0 320px;
+      flex: 0 0 310px;
       scroll-snap-align: start;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 20px;
-      padding: 1.5rem;
+      padding: 1.4rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 1.25rem;
-      position: relative;
+      gap: 1.2rem;
       backdrop-filter: blur(12px);
       box-shadow: 0 10px 25px var(--shadow-color);
-      transition: transform 0.35 ease, border-color 0.35s ease, box-shadow 0.35s ease;
+      position: relative;
     }
 
     .game-card:hover {
-      transform: translateY(-8px) scale(1.02);
+      transform: translateY(-6px);
       border-color: var(--card-border-hover);
-      box-shadow: 0 20px 35px var(--glow-color);
+      box-shadow: 0 18px 30px var(--glow-color);
     }
 
     .card-top {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
     }
 
-    .rank-badge {
+    .status-badge {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
-      color: var(--text-dim);
-      background: rgba(255, 255, 255, 0.05);
-      padding: 0.25rem 0.5rem;
+      padding: 0.25rem 0.6rem;
       border-radius: 6px;
-      border: 1px solid var(--card-border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
+
+    .status-badge.active { background: var(--status-active-bg); border: 1px solid var(--status-active-border); color: var(--status-active-text); }
+    .status-badge.occasional { background: var(--status-occ-bg); border: 1px solid var(--status-occ-border); color: var(--status-occ-text); }
+    .status-badge.niche { background: var(--status-niche-bg); border: 1px solid var(--status-niche-border); color: var(--status-niche-text); }
+    .status-badge.completed { background: var(--status-comp-bg); border: 1px solid var(--status-comp-border); color: var(--status-comp-text); }
+    .status-badge.retired { background: var(--status-ret-bg); border: 1px solid var(--status-ret-border); color: var(--status-ret-text); }
 
     .game-icon {
-      font-size: 2.25rem;
+      font-size: 2rem;
       line-height: 1;
     }
 
@@ -498,34 +520,28 @@
     }
 
     .game-title {
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 700;
       letter-spacing: -0.01em;
     }
 
-    .stat-badge {
-      display: inline-block;
-      background: var(--badge-bg);
-      border: 1px solid var(--badge-border);
-      color: var(--badge-text);
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 0.3rem 0.7rem;
-      border-radius: 8px;
-      width: fit-content;
+    .stat-tag {
       font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent-purple);
+      font-weight: 600;
     }
 
     .card-body {
-      background: rgba(0, 0, 0, 0.15);
+      background: rgba(0, 0, 0, 0.12);
       border-radius: 12px;
-      padding: 0.85rem;
+      padding: 0.8rem;
       border: 1px solid rgba(255, 255, 255, 0.03);
     }
 
     .funny-note {
       color: var(--text-muted);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       line-height: 1.45;
       font-style: italic;
     }
@@ -538,17 +554,107 @@
       color: var(--text-dim);
       font-weight: 500;
       border-top: 1px dashed var(--card-border);
-      padding-top: 0.75rem;
+      padding-top: 0.65rem;
     }
 
-    .category-label {
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+    /* Grid Sections for Projects & Friends */
+    .grid-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
     }
 
-    /* ==========================================================================
-       FOOTER
-       ========================================================================== */
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 1.75rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 25px var(--shadow-color);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .feature-card:hover {
+      border-color: var(--accent-purple);
+      transform: translateY(-4px);
+    }
+
+    .feature-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .feature-icon {
+      font-size: 1.75rem;
+    }
+
+    .feature-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tag-pill {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+    }
+
+    /* Secret / Easter Egg Drawer */
+    .secret-trigger-btn {
+      background: transparent;
+      border: 1px dashed var(--card-border);
+      color: var(--text-dim);
+      padding: 0.75rem 1.25rem;
+      border-radius: 14px;
+      cursor: pointer;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    .secret-trigger-btn:hover {
+      border-color: var(--accent-purple);
+      color: var(--accent-purple);
+    }
+
+    .secret-box {
+      display: none;
+      background: var(--card-bg);
+      border: 1px solid var(--accent-purple);
+      border-radius: 16px;
+      padding: 1.25rem;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Footer */
     footer {
       text-align: center;
       color: var(--text-dim);
@@ -565,60 +671,18 @@
       color: var(--accent-purple);
     }
 
-    /* ==========================================================================
-       RESPONSIVE BREAKPOINTS
-       ========================================================================== */
+    /* Mobile Responsive */
     @media (max-width: 768px) {
-      body {
-        padding: 1.25rem 1rem 3rem;
-      }
-
-      .hero-section {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 1.5rem;
-        padding: 1.75rem;
-      }
-
-      .avatar-wrapper {
-        margin: 0 auto;
-      }
-
-      .avatar-gif {
-        width: 110px;
-        height: 110px;
-      }
-
-      .hero-title-row {
-        justify-content: center;
-      }
-
-      .hero-name {
-        font-size: 2rem;
-      }
-
-      .discord-badge-btn {
-        margin: 0 auto;
-      }
-
-      .section-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .controls-wrapper {
-        width: 100%;
-        justify-content: space-between;
-      }
-
-      .filter-tabs {
-        overflow-x: auto;
-        max-width: 100%;
-      }
-
-      .game-card {
-        flex: 0 0 280px;
-      }
+      body { padding: 1.25rem 1rem 3rem; }
+      .hero-section { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; padding: 1.75rem; }
+      .avatar-wrapper { margin: 0 auto; }
+      .avatar-gif { width: 110px; height: 110px; }
+      .hero-title-row, .badge-group { justify-content: center; }
+      .hero-name { font-size: 2rem; }
+      .section-header { flex-direction: column; align-items: flex-start; }
+      .controls-wrapper { width: 100%; justify-content: space-between; }
+      .filter-tabs { overflow-x: auto; width: 100%; }
+      .game-card { flex: 0 0 280px; }
     }
   </style>
 </head>
@@ -626,21 +690,21 @@
 
   <div class="app-container">
     
-    <!-- Top Navigation Header -->
+    <!-- Navigation Header -->
     <header>
       <div class="brand">
         <img class="brand-logo-small" src="https://raw.githubusercontent.com/Lupilgaming/mySite/master/a1.gif" alt="Lupil Avatar">
         <span class="brand-title">Lupil.gg</span>
       </div>
 
-      <!-- Theme Switcher Button -->
+      <!-- Theme Switcher -->
       <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle theme">
         <span id="themeIcon">🌙</span>
         <span id="themeLabel">Dark</span>
       </button>
     </header>
 
-    <!-- Main Hero Profile Section -->
+    <!-- Hero Profile Section -->
     <section class="hero-section">
       <div class="avatar-wrapper">
         <img class="avatar-gif" src="https://raw.githubusercontent.com/Lupilgaming/mySite/master/a1.gif" alt="Lupil Personal Logo GIF">
@@ -654,296 +718,585 @@
         </div>
 
         <p class="hero-tagline">
-          Gamer, casual sweat, lore skipper, and part-time engineer. Welcome to my personal gaming resume — where accomplishments are peak and excuses are elite.
+          Gamer, casual sweat, niche finder, and hobbyist game creator. Welcome to my gaming portfolio — where accomplishments are peak, excuses are elite, and local prototypes are always in development.
         </p>
 
-        <!-- Discord Copy Badge -->
-        <button class="discord-badge-btn" id="discordBtn" onclick="copyDiscordTag()" title="Click to copy Discord Tag">
-          <svg class="discord-icon" viewBox="0 0 127.14 96.36">
-            <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a73.51,73.51,0,0,0,64.32,0c.87.69,1.76,1.37,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77.46,77.46,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22c2.63-27.42-4.83-51.13-18.9-72.15ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74C48.86,40.23,54,45.92,53.86,53,53.86,60,48.8,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74C91.13,40.23,96.28,45.92,96.14,53,96.14,60,91.07,65.69,84.69,65.69Z"/>
-          </svg>
-          <span>lupil1410_74322</span>
-          <span class="copy-toast" id="copyToast">Copied to Clipboard! ✨</span>
-        </button>
+        <!-- Quick Copy Badges -->
+        <div class="badge-group">
+          <!-- Discord Badge -->
+          <button class="id-badge discord" onclick="copyText('lupil1410_74322', 'toastDiscord')" title="Copy Discord Tag">
+            <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 127.14 96.36">
+              <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a73.51,73.51,0,0,0,64.32,0c.87.69,1.76,1.37,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77.46,77.46,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22c2.63-27.42-4.83-51.13-18.9-72.15ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74C48.86,40.23,54,45.92,53.86,53,53.86,60,48.8,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74C91.13,40.23,96.28,45.92,96.14,53,96.14,60,91.07,65.69,84.69,65.69Z"/>
+            </svg>
+            <span>Discord: lupil1410_74322</span>
+            <span class="toast-popup" id="toastDiscord">Copied Discord ID! ✨</span>
+          </button>
+
+          <!-- Valorant ID Badge -->
+          <button class="id-badge valo" onclick="copyText('u53#not', 'toastValo')" title="Copy Valorant ID">
+            <span>🎯 Valo ID: u53#not</span>
+            <span class="toast-popup" id="toastValo">Copied Valorant ID! 🎯</span>
+          </button>
+        </div>
       </div>
     </section>
 
-    <!-- Game Showcase Section -->
+    <!-- Games Showcase Section -->
     <section>
       <div class="section-header">
         <div>
-          <h2 class="section-title">🎮 Gaming Accomplishments</h2>
-          <p class="section-subtitle">Arranged by global popularity & sweat index</p>
+          <h2 class="section-title">🎮 Games Showcase</h2>
+          <p class="section-subtitle">Categorized by activity status & completion achievements</p>
         </div>
 
         <div class="controls-wrapper">
-          <!-- Filter Tabs -->
+          <!-- Status Filter Tabs -->
           <div class="filter-tabs">
-            <button class="filter-btn active" onclick="filterGames('all')">All</button>
-            <button class="filter-btn" onclick="filterGames('fps')">FPS</button>
-
-            <button class="filter-btn" onclick="filterGames('strategy')">Strategy</button>
-            <button class="filter-btn" onclick="filterGames('rpg')">RPG</button>
+            <button class="filter-btn active" onclick="filterStatus('all')">All</button>
+            <button class="filter-btn" onclick="filterStatus('active')">🔥 Active</button>
+            <button class="filter-btn" onclick="filterStatus('occasional')">⚡ Occasional</button>
+            <button class="filter-btn" onclick="filterStatus('niche')">💎 Niche Finds</button>
+            <button class="filter-btn" onclick="filterStatus('completed')">🏆 Completed</button>
+            <button class="filter-btn" onclick="filterStatus('retired')">📦 Retired</button>
           </div>
 
-          <!-- Carousel Scroll Arrows -->
-          <div class="scroll-arrow-btns">
-            <button class="arrow-btn" onclick="scrollCarousel(-340)" aria-label="Scroll left">←</button>
-            <button class="arrow-btn" onclick="scrollCarousel(340)" aria-label="Scroll right">→</button>
+          <!-- Carousel Controls -->
+          <div style="display:flex;gap:0.4rem;">
+            <button class="arrow-btn" onclick="scrollCarousel(-330)" aria-label="Scroll left">←</button>
+            <button class="arrow-btn" onclick="scrollCarousel(330)" aria-label="Scroll right">→</button>
           </div>
         </div>
       </div>
 
-      <!-- Horizontal Cards Container -->
+      <!-- Horizontal Cards Scroll Container -->
       <div class="cards-scroll-container" id="cardsContainer">
 
-        <!-- 1. Counter Strike -->
-        <article class="game-card" data-category="fps">
-          <div class="card-top">
-            <span class="rank-badge">#01 POPULARITY</span>
-            <span class="game-icon">💥</span>
-          </div>
-          <div class="game-header">
-            <h3 class="game-title">Counter-Strike</h3>
-            <span class="stat-badge">Best FPS game out there ?</span>
-          </div>
-          <div class="card-body">
-            <p class="funny-note">"AK-47 spray control is temporary, economic ruin every 3rd round is forever."</p>
-          </div>
-          <div class="card-footer">
-            <span class="category-label">TACTICAL FPS</span>
-            <span>GOAT STATUS</span>
-          </div>
-        </article>
+        <!-- 🔥 ACTIVE GAMES -->
 
-        <!-- 2. Valorant -->
-        <article class="game-card" data-category="fps">
+        <!-- Valorant -->
+        <article class="game-card" data-status="active">
           <div class="card-top">
-            <span class="rank-badge">#02 POPULARITY</span>
+            <span class="status-badge active">🔥 ACTIVE</span>
             <span class="game-icon">🎯</span>
           </div>
           <div class="game-header">
             <h3 class="game-title">Valorant</h3>
-            <span class="stat-badge">Peak D1 (Diamond 1)</span>
+            <span class="stat-tag">Peak D1 • ID: u53#not</span>
           </div>
           <div class="card-body">
             <p class="funny-note">"Instalocking Reyna, blaming line-ups, and hitting Diamond 1 by pure unadulterated ego."</p>
           </div>
           <div class="card-footer">
-            <span class="category-label">TACTICAL FPS</span>
+            <span>TACTICAL FPS</span>
             <span>RANKED GRIND</span>
           </div>
         </article>
 
-        <!-- 3. Apex Legends -->
-        <article class="game-card" data-category="fps">
+        <!-- Clash Royale -->
+        <article class="game-card" data-status="active">
           <div class="card-top">
-            <span class="rank-badge">#03 POPULARITY</span>
-            <span class="game-icon">⚡</span>
-          </div>
-          <div class="game-header">
-            <h3 class="game-title">Apex Legends</h3>
-            <span class="stat-badge">Too much going on ?</span>
-          </div>
-          <div class="card-body">
-            <p class="funny-note">"Third party gets third partied by a fourth party while I tap-strafe directly into lava."</p>
-          </div>
-          <div class="card-footer">
-            <span class="category-label">BATTLE ROYALE</span>
-            <span>HIGH OCTANE</span>
-          </div>
-        </article>
-
-        <!-- 4. Clash Royale -->
-        <article class="game-card" data-category="strategy">
-          <div class="card-top">
-            <span class="rank-badge">#04 POPULARITY</span>
+            <span class="status-badge active">🔥 ACTIVE</span>
             <span class="game-icon">👑</span>
           </div>
           <div class="game-header">
             <h3 class="game-title">Clash Royale</h3>
-            <span class="stat-badge">14k Trophies • Grand Champ</span>
+            <span class="stat-tag">14k Trophies • Grand Champ</span>
           </div>
           <div class="card-body">
             <p class="funny-note">"Emote spamming Mega Knight bridge drop is a valid tactical masterclass."</p>
           </div>
           <div class="card-footer">
-            <span class="category-label">MOBILE STRATEGY</span>
-            <span>EMOTE WARRIOR</span>
+            <span>STRATEGY</span>
+            <span>GRAND CHAMP</span>
           </div>
         </article>
 
-        <!-- 5. PUBG Mobile -->
-        <article class="game-card" data-category="fps">
+        <!-- ⚡ OCCASIONAL GAMES -->
+
+        <!-- Counter-Strike -->
+        <article class="game-card" data-status="occasional">
           <div class="card-top">
-            <span class="rank-badge">#05 POPULARITY</span>
-            <span class="game-icon">🪂</span>
+            <span class="status-badge occasional">⚡ OCCASIONAL</span>
+            <span class="game-icon">💥</span>
           </div>
           <div class="game-header">
-            <h3 class="game-title">PUBG Mobile</h3>
-            <span class="stat-badge">Peak Diamond</span>
+            <h3 class="game-title">Counter-Strike</h3>
+            <span class="stat-tag">Best FPS game out there ?</span>
           </div>
           <div class="card-body">
-            <p class="funny-note">"Fell out of a moving Dacia at full speed into a top 10 chicken dinner."</p>
+            <p class="funny-note">"AK-47 spray control is temporary, economic ruin every 3rd round is forever."</p>
           </div>
           <div class="card-footer">
-            <span class="category-label">MOBILE BR</span>
-            <span>POTATO DRIVER</span>
+            <span>TACTICAL FPS</span>
+            <span>THE GOAT</span>
           </div>
         </article>
 
-        <!-- 6. It Takes Two -->
-        <article class="game-card" data-category="rpg">
+        <!-- Marvel Rivals -->
+        <article class="game-card" data-status="occasional">
           <div class="card-top">
-            <span class="rank-badge">#06 POPULARITY</span>
+            <span class="status-badge occasional">⚡ OCCASIONAL</span>
+            <span class="game-icon">🐍</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Marvel Rivals</h3>
+            <span class="stat-tag">Went Gold 🥇 • I am Loki</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Liked the hero shooter concept — maining Loki and bamboozling enemies into confusion."</p>
+          </div>
+          <div class="card-footer">
+            <span>HERO SHOOTER</span>
+            <span>GOLD RANKED</span>
+          </div>
+        </article>
+
+        <!-- Stumble Guys -->
+        <article class="game-card" data-status="occasional">
+          <div class="card-top">
+            <span class="status-badge occasional">⚡ OCCASIONAL</span>
+            <span class="game-icon">🏃‍♂️</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Stumble Guys</h3>
+            <span class="stat-tag">Helps Beat the Heat ☀️</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Pure chaotic knockout madness. The ultimate chill game to beat summer heat."</p>
+          </div>
+          <div class="card-footer">
+            <span>PARTY ROYALE</span>
+            <span>CHILL VIBES</span>
+          </div>
+        </article>
+
+        <!-- Asphalt 8 / 9 -->
+        <article class="game-card" data-status="occasional">
+          <div class="card-top">
+            <span class="status-badge occasional">⚡ OCCASIONAL</span>
+            <span class="game-icon">🏎️</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Asphalt 8 / 9</h3>
+            <span class="stat-tag">Arcade Speedster</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Legends gotta keep going back on the run. Nitro barrel rolls never get old."</p>
+          </div>
+          <div class="card-footer">
+            <span>ARCADE RACING</span>
+            <span>LEGENDS RETURN</span>
+          </div>
+        </article>
+
+        <!-- 💎 NICHE FINDS -->
+
+        <!-- Monoposto -->
+        <article class="game-card" data-status="niche">
+          <div class="card-top">
+            <span class="status-badge niche">💎 NICHE FIND</span>
+            <span class="game-icon">🏎️</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Monoposto</h3>
+            <span class="stat-tag">Zero AI Assist Cleared</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Completed full races with 0 AI assists. A bit slow on total lap time... but NOT on the apex turns ;) "</p>
+          </div>
+          <div class="card-footer">
+            <span>FORMULA RACING</span>
+            <span>SIM ENTHUSIAST</span>
+          </div>
+        </article>
+
+        <!-- Skate 3 -->
+        <article class="game-card" data-status="niche">
+          <div class="card-top">
+            <span class="rank-badge niche" style="background:var(--status-niche-bg);color:var(--status-niche-text);border-color:var(--status-niche-border)">💎 NICHE FIND</span>
+            <span class="game-icon">🛹</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Skate 3</h3>
+            <span class="stat-tag">W Timepass 🏆</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Fking loved the flickit physics & ragdoll mechanics — absolute top tier timepass."</p>
+          </div>
+          <div class="card-footer">
+            <span>SKATEBOARDING</span>
+            <span>PHYSICS KING</span>
+          </div>
+        </article>
+
+        <!-- Spider Fighter 3 -->
+        <article class="game-card" data-status="niche">
+          <div class="card-top">
+            <span class="status-badge niche">💎 NICHE FIND</span>
+            <span class="game-icon">🕸️</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Spider Fighter 3</h3>
+            <span class="stat-tag">Very Occasional Slinger</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Loved the smooth indie brawler combat — occasional city swinging session."</p>
+          </div>
+          <div class="card-footer">
+            <span>INDIE ACTION</span>
+            <span>HIDDEN GEM</span>
+          </div>
+        </article>
+
+        <!-- Neomonsters -->
+        <article class="game-card" data-status="niche">
+          <div class="card-top">
+            <span class="status-badge niche">💎 NICHE FIND</span>
+            <span class="game-icon">👾</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Neomonsters</h3>
+            <span class="stat-tag">All Offline + 8 Online Ch.</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Gacha RNG hurt my feelings deeply, but the monster fusion grind was a true niche gem."</p>
+          </div>
+          <div class="card-footer">
+            <span>TURN RPG</span>
+            <span>GRIND LORD</span>
+          </div>
+        </article>
+
+        <!-- 🏆 COMPLETED GAMES -->
+
+        <!-- Astro Bot -->
+        <article class="game-card" data-status="completed">
+          <div class="card-top">
+            <span class="status-badge completed">🏆 COMPLETED</span>
+            <span class="game-icon">🤖</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Astro Bot (PS5)</h3>
+            <span class="stat-tag">Hehe Fun 🤖</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Pure platformer joy & haptic magic. Absolute masterpiece from start to finish."</p>
+          </div>
+          <div class="card-footer">
+            <span>PS5 PLATFORMER</span>
+            <span>PURE JOY</span>
+          </div>
+        </article>
+
+        <!-- It Takes Two -->
+        <article class="game-card" data-status="completed">
+          <div class="card-top">
+            <span class="status-badge completed">🏆 COMPLETED</span>
             <span class="game-icon">🧩</span>
           </div>
           <div class="game-header">
             <h3 class="game-title">It Takes Two</h3>
-            <span class="stat-badge">W Game 🏆</span>
+            <span class="stat-tag">W Game 🏆</span>
           </div>
           <div class="card-body">
             <p class="funny-note">"Peak co-op masterpiece. The elephant scene left permanent emotional damage."</p>
           </div>
           <div class="card-footer">
-            <span class="category-label">CO-OP ADVENTURE</span>
-            <span>CERTIFIED W</span>
+            <span>CO-OP ADVENTURE</span>
+            <span>GOTY WINNER</span>
           </div>
         </article>
 
-        <!-- 7. Portal -->
-        <article class="game-card" data-category="strategy">
+        <!-- Pokemon Sapphire -->
+        <article class="game-card" data-status="completed">
           <div class="card-top">
-            <span class="rank-badge">#07 POPULARITY</span>
-            <span class="game-icon">🌀</span>
-          </div>
-          <div class="game-header">
-            <h3 class="game-title">Portal</h3>
-            <span class="stat-badge">Loved it, didn't finish shit 🍰</span>
-          </div>
-          <div class="card-body">
-            <p class="funny-note">"The cake is a lie, and so was my ability to solve momentum physics past level 14."</p>
-          </div>
-          <div class="card-footer">
-            <span class="category-label">PUZZLE CLASSIC</span>
-            <span>GLaDOS TESTEE</span>
-          </div>
-        </article>
-
-        <!-- 8. Pokemon Sapphire -->
-        <article class="game-card" data-category="rpg">
-          <div class="card-top">
-            <span class="rank-badge">#08 POPULARITY</span>
+            <span class="status-badge completed">🏆 COMPLETED</span>
             <span class="game-icon">🌊</span>
           </div>
           <div class="game-header">
             <h3 class="game-title">Pokémon Sapphire</h3>
-            <span class="stat-badge">Post-Champ Cleared</span>
+            <span class="stat-tag">Post-Champ Missions Done</span>
           </div>
           <div class="card-body">
-            <p class="funny-note">"7.8/10 too much water, but Kyogre carried my entire childhood through the Hoenn region."</p>
+            <p class="funny-note">"7.8/10 too much water, but Kyogre carried my entire childhood through Hoenn."</p>
           </div>
           <div class="card-footer">
-            <span class="category-label">GBA RPG</span>
+            <span>GBA RPG</span>
             <span>HOENN CHAMP</span>
           </div>
         </article>
 
-        <!-- 9. Pokemon Light Platinum -->
-        <article class="game-card" data-category="rpg">
+        <!-- Pokemon Light Platinum -->
+        <article class="game-card" data-status="completed">
           <div class="card-top">
-            <span class="rank-badge">#09 POPULARITY</span>
+            <span class="status-badge completed">🏆 COMPLETED</span>
             <span class="game-icon">🐉</span>
           </div>
           <div class="game-header">
             <h3 class="game-title">Pokémon Light Platinum</h3>
-            <span class="stat-badge">Finished (Max Mon < LV69)</span>
+            <span class="stat-tag">Finished (Max Mon < LV69)</span>
           </div>
           <div class="card-body">
             <p class="funny-note">"Underleveled, overconfident, and spamming Max Revives against the Elite Four."</p>
           </div>
           <div class="card-footer">
-            <span class="category-label">ROM HACK</span>
-            <span>LEVEL CAP Flex</span>
+            <span>ROM HACK</span>
+            <span>LEVEL CAP FLEX</span>
           </div>
         </article>
 
-        <!-- 10. Pokemon Stadium 2 -->
-        <article class="game-card" data-category="rpg">
+        <!-- Pokemon Stadium 2 -->
+        <article class="game-card" data-status="completed">
           <div class="card-top">
-            <span class="rank-badge">#10 POPULARITY</span>
+            <span class="status-badge completed">🏆 COMPLETED</span>
             <span class="game-icon">🎮</span>
           </div>
           <div class="game-header">
             <h3 class="game-title">Pokémon Stadium 2</h3>
-            <span class="stat-badge">Won All Tournaments</span>
+            <span class="stat-tag">Won All Tournaments</span>
           </div>
           <div class="card-body">
             <p class="funny-note">"Metronome RNG was on my side and the N64 controller somehow survived."</p>
           </div>
           <div class="card-footer">
-            <span class="category-label">N64 CLASSIC</span>
+            <span>N64 CLASSIC</span>
             <span>ARENA SWEEPER</span>
           </div>
         </article>
 
-        <!-- 11. Neomonsters -->
-        <article class="game-card" data-category="rpg">
+        <!-- 📦 RETIRED / BENCHED GAMES -->
+
+        <!-- Apex Legends -->
+        <article class="game-card" data-status="retired">
           <div class="card-top">
-            <span class="rank-badge">#11 POPULARITY</span>
-            <span class="game-icon">👾</span>
+            <span class="status-badge retired">📦 RETIRED</span>
+            <span class="game-icon">⚡</span>
           </div>
           <div class="game-header">
-            <h3 class="game-title">Neomonsters</h3>
-            <span class="stat-badge">All Offline + 8 Online Ch.</span>
+            <h3 class="game-title">Apex Legends</h3>
+            <span class="stat-tag">Too much going on ?</span>
           </div>
           <div class="card-body">
-            <p class="funny-note">"Gacha RNG hurt my feelings deeply, but the monster fusion grind never stops."</p>
+            <p class="funny-note">"Third party gets third partied while I tap-strafe directly into lava. Benched."</p>
           </div>
           <div class="card-footer">
-            <span class="category-label">TURN-BASED RPG</span>
-            <span>GRIND LORD</span>
+            <span>BATTLE ROYALE</span>
+            <span>CHAOS RETIRED</span>
           </div>
         </article>
 
-        <!-- 12. CODM -->
-        <article class="game-card" data-category="fps">
+        <!-- PUBG Mobile -->
+        <article class="game-card" data-status="retired">
           <div class="card-top">
-            <span class="rank-badge">#12 POPULARITY</span>
+            <span class="status-badge retired">📦 RETIRED</span>
+            <span class="game-icon">🪂</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">PUBG Mobile</h3>
+            <span class="stat-tag">Peak Diamond</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Fell out of a moving Dacia at full speed into a top 10 chicken dinner. Benched."</p>
+          </div>
+          <div class="card-footer">
+            <span>MOBILE BR</span>
+            <span>DACIA LEGEND</span>
+          </div>
+        </article>
+
+        <!-- CODM -->
+        <article class="game-card" data-status="retired">
+          <div class="card-top">
+            <span class="status-badge retired">📦 RETIRED</span>
             <span class="game-icon">🔫</span>
           </div>
           <div class="game-header">
             <h3 class="game-title">CODM</h3>
-            <span class="stat-badge">Played :)</span>
+            <span class="stat-tag">Played :)</span>
           </div>
           <div class="card-body">
             <p class="funny-note">"Slid into every doorway at Mach 2 speed, got sniped across Nuketown, had fun."</p>
           </div>
           <div class="card-footer">
-            <span class="category-label">MOBILE FPS</span>
-            <span>SLIDE SLIPPER</span>
+            <span>MOBILE FPS</span>
+            <span>GOOD MEMORIES</span>
           </div>
         </article>
 
-        <!-- 13. PUBG Lite -->
-        <article class="game-card" data-category="fps">
+        <!-- Solo Leveling: Arise -->
+        <article class="game-card" data-status="retired">
           <div class="card-top">
-            <span class="rank-badge">#13 POPULARITY</span>
+            <span class="status-badge retired">📦 RETIRED / ON HOLD</span>
+            <span class="game-icon">⚔️</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Solo Leveling: Arise</h3>
+            <span class="stat-tag">20 Hours Logged</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Logged 20 hours of shadow monarch summoning — currently put on hold / retired."</p>
+          </div>
+          <div class="card-footer">
+            <span>ACTION RPG</span>
+            <span>SHADOW ARMY</span>
+          </div>
+        </article>
+
+        <!-- Century: Age of Ashes -->
+        <article class="game-card" data-status="retired">
+          <div class="card-top">
+            <span class="status-badge retired">📦 RETIRED</span>
+            <span class="game-icon">🐉</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Century: Age of Ashes</h3>
+            <span class="stat-tag">Dragon Rider</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Well, I have ridden a dragon... just haven't learnt how to control it ;) "</p>
+          </div>
+          <div class="card-footer">
+            <span>DRAGON DOGFIGHT</span>
+            <span>FLIGHT LESSONS</span>
+          </div>
+        </article>
+
+        <!-- Rainbow Six Siege -->
+        <article class="game-card" data-status="retired">
+          <div class="card-top">
+            <span class="status-badge retired">📦 RETIRED</span>
+            <span class="game-icon">🧱</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Rainbow Six Siege</h3>
+            <span class="stat-tag">WTAF Moment</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"WTAF am I supposed to do here ? Reinforced the wrong wall, got peeked through a bullet hole."</p>
+          </div>
+          <div class="card-footer">
+            <span>TACTICAL FPS</span>
+            <span>WALL CONFUSION</span>
+          </div>
+        </article>
+
+        <!-- Portal -->
+        <article class="game-card" data-status="retired">
+          <div class="card-top">
+            <span class="status-badge retired">📦 RETIRED</span>
+            <span class="game-icon">🌀</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Portal</h3>
+            <span class="stat-tag">Loved it, didn't finish 🍰</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"The cake is a lie, and so was my ability to solve momentum physics past level 14."</p>
+          </div>
+          <div class="card-footer">
+            <span>PUZZLE CLASSIC</span>
+            <span>GLaDOS W</span>
+          </div>
+        </article>
+
+        <!-- PUBG Lite -->
+        <article class="game-card" data-status="retired">
+          <div class="card-top">
+            <span class="status-badge retired">📦 RETIRED</span>
             <span class="game-icon">🥔</span>
           </div>
           <div class="game-header">
             <h3 class="game-title">PUBG Lite</h3>
-            <span class="stat-badge">Tried 🥔</span>
+            <span class="stat-tag">Tried 🥔</span>
           </div>
           <div class="card-body">
             <p class="funny-note">"Tested potato-spec PC limits. 30 FPS render build hits different."</p>
           </div>
           <div class="card-footer">
-            <span class="category-label">TACTICAL BR</span>
-            <span>POTATO POWER</span>
+            <span>BR CLASSIC</span>
+            <span>POTATO SPEC</span>
           </div>
         </article>
 
+        <!-- Silent Retires -->
+        <article class="game-card" data-status="retired">
+          <div class="card-top">
+            <span class="status-badge retired">📦 SILENT RETIRES</span>
+            <span class="game-icon">🌙</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Good Games, Silent Retires</h3>
+            <span class="stat-tag">Once Human • Palia • DW2</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Once Human, Palia, Drunken Wrestlers 2 — silent retires, but genuinely great games while they lasted."</p>
+          </div>
+          <div class="card-footer">
+            <span>MULTI-GENRE</span>
+            <span>HONORABLE MENTION</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Hobbyist Game Creator & Local Projects Section -->
+    <section>
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">🛠️ Hobbyist Game Creator</h2>
+          <p class="section-subtitle">Personal game dev prototypes, local builds & mechanics experiments</p>
+        </div>
+      </div>
+
+      <div class="grid-section">
+        <div class="feature-card">
+          <div class="feature-card-header">
+            <span class="feature-icon">💻</span>
+            <div>
+              <h3 class="feature-title">Local Game Prototypes</h3>
+              <p class="section-subtitle">Under active iteration</p>
+            </div>
+          </div>
+          <p class="feature-desc">
+            Building custom game mechanics, physics controllers, and local prototypes. From ragdoll physics to turn-based combat systems.
+          </p>
+          <div class="project-tags">
+            <span class="tag-pill">Unity / Engine</span>
+            <span class="tag-pill">C# / Python</span>
+            <span class="tag-pill">Game Design</span>
+            <span class="tag-pill">Local Builds</span>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-header">
+            <span class="feature-icon">🤝</span>
+            <div>
+              <h3 class="feature-title">Friends' Creations & Links</h3>
+              <p class="section-subtitle">Cool indie games made by friends</p>
+            </div>
+          </div>
+          <p class="feature-desc">
+            Spotlighting awesome games and indie projects created by friends in the dev community.
+          </p>
+          <div class="project-tags">
+            <span class="tag-pill">Indie Dev</span>
+            <span class="tag-pill">Community Showcase</span>
+            <span class="tag-pill">Playable Demos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hidden VR & Sim Secret Drawer -->
+    <section>
+      <button class="secret-trigger-btn" onclick="toggleSecret()">
+        🤫 Secret Vault: Click to reveal VR & Racing Sim Plans
+      </button>
+      <div class="secret-box" id="secretBox">
+        <h4 style="color:var(--accent-purple);font-size:1.05rem;margin-bottom:0.4rem;">🥽 VR Games & Racing Simulators</h4>
+        <p>Tried & deeply loved VR titles and racing sims. Currently planning to set up a full motion cockpit / VR rig in the future! 🏎️💨</p>
       </div>
     </section>
 
@@ -955,22 +1308,20 @@
 
   </div>
 
-  <!-- Interactive JavaScript Logic -->
+  <!-- JavaScript Logic -->
   <script>
-    // Theme Switcher Logic
+    // Theme Switcher
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     const themeIcon = document.getElementById('themeIcon');
     const themeLabel = document.getElementById('themeLabel');
     const htmlElem = document.documentElement;
 
-    // Load saved theme or default to dark
     const savedTheme = localStorage.getItem('theme') || 'dark';
     setTheme(savedTheme);
 
     themeToggleBtn.addEventListener('click', () => {
       const currentTheme = htmlElem.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      setTheme(newTheme);
+      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
     });
 
     function setTheme(theme) {
@@ -985,31 +1336,31 @@
       }
     }
 
-    // Copy Discord Tag to Clipboard
-    function copyDiscordTag() {
-      const discordTag = 'lupil1410_74322';
-      navigator.clipboard.writeText(discordTag).then(() => {
-        const toast = document.getElementById('copyToast');
-        toast.classList.add('show');
-        setTimeout(() => {
-          toast.classList.remove('show');
-        }, 2200);
+    // Copy Utility function for Badges
+    function copyText(text, toastId) {
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById(toastId);
+        if (toast) {
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2200);
+        }
       });
     }
 
-    // Scroll Horizontal Carousel
+    // Scroll Carousel
     function scrollCarousel(amount) {
       const container = document.getElementById('cardsContainer');
       container.scrollBy({ left: amount, behavior: 'smooth' });
     }
 
-    // Filter Cards by Category
-    function filterGames(category) {
+    // Filter Status Logic
+    function filterStatus(status) {
       const cards = document.querySelectorAll('.game-card');
       const buttons = document.querySelectorAll('.filter-btn');
 
       buttons.forEach(btn => {
-        if (btn.textContent.toLowerCase() === category.toLowerCase() || (category === 'all' && btn.textContent === 'All')) {
+        if ((status === 'all' && btn.textContent.trim() === 'All') ||
+            btn.textContent.toLowerCase().includes(status)) {
           btn.classList.add('active');
         } else {
           btn.classList.remove('active');
@@ -1017,12 +1368,18 @@
       });
 
       cards.forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
+        if (status === 'all' || card.dataset.status === status) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
         }
       });
+    }
+
+    // Secret Toggle
+    function toggleSecret() {
+      const box = document.getElementById('secretBox');
+      box.style.display = box.style.display === 'block' ? 'none' : 'block';
     }
   </script>
 </body>
