@@ -1,213 +1,1386 @@
 <!DOCTYPE html>
-
-<div class="intro-text-wrapper">
-  <div class="intro-text-container">
-    <h1>
-      <span class="intro-text-1 start">
-        👋
-      </span>
-      <span class="intro-text-2 start">
-        Hi
-      </span>
-      <span class="intro-text-3 start">
-        ,
-      </span>
-      <span class="intro-text-4 start">
-        I'm Lupil
-      </span>
-    </h1>
-  </div>
-</div>
-
-<div class="wrapper">
-  <div class="box a">
-    <p>Blogpost1 </p>
-    <code>Lorem Ipsum..........</code>
-  </div>
-  <div class="box b">
-    <p>This is weird </p>
-    <code>Should I be here or should I not</code>
-  </div>
-  <div class="box c">
-    <p>Attempting MTech thesis</p>
-    <code>I'm possible ? </code>
-
-  </div>
-  <div class="box d">
-    <p>******* ****** </p>
-    <code>*********** etc. engineer to be ?? </code>
-  </div>
-  <div class="box e">
-    <h2>This is the story of the toy boy :-> </h2>
-    <p>I try to be anonymous here lol :P </p>
-    <p>I dont know who I am..........</p>
-  </div>
-</div>
-
-
-
-<style>
-    .intro-text-wrapper {
-  display: inline-flex;
-  align-items:center;
-  min-height: 100vh;
-}
-
-.intro-text-container {
-  margin: 0 auto;
-  transition: 2s ease;
-  text-align: left;
-  max-width: 286px;
-    width: auto;
-}
-
-h1 {
-  font-size: 3em;
-  font-family: Helvetica;
-  letter-spacing: -0.025em;
-  margin: 0 auto;
-  display: block;
-  width: 100%;
-  height: 50px;
-}
-
-
-.intro-text-1, .intro-text-2, .intro-text-3, .intro-text-4 {
-  transition: 1.5s ease;
-  display: inline-block;
-/*  float: right;*/
-}
-
-@keyframes waveHand {
-  0% {
-     transform: rotate(7deg);
-  }
-  50% {
-     transform: rotate(-7deg); 
-  }
-  100% {
-     transform: rotate(7deg);
-  }
-}
-
-.intro-text-1 {
-  animation-name: waveHand;
-  animation-iteration-count: infinite;
-  animation-duration: 1.3s;
-  animation-timing-function: ease;
-  transform-origin: 90% 80%;
-  opacity:  1;
-  margin-left: 1rem;
-}
-.intro-text-1.start {
-  opacity: 1;
-}
-
-.intro-text-2 {
-  width: auto;
-  opacity: 1;
-  transition-delay: 1.5s;
-  margin-left: 5rem;
-  max-width: 5rem;
-}
-
-.intro-text-2.start {
-  width: 0;
-  opacity: 1;
-/*    max-width: 1px;*/
-}
-
-.intro-text-3 {
-  opacity: 1;
-    margin-left: 8rem;
-  transition-delay: 3.25s;
-}
-
-.intro-text-3.start {
-  opacity: 1;
-}
-
-.intro-text-4 {
-  max-width: 150px;
-  opacity: 1;
-  transition: ease 2s;
-  transition-delay: 3.5s;
-  white-space:nowrap;
-  transform: translateX(0px);
-  margin-left: 7rem;
-}
-
-.intro-text-4.start {
-  max-width: 1px;
-  opacity: 1;
-  transform: translateX(60px);
-}
-
-.start {
-  position: absolute;
-  opacity: 1;
-}
-</style>
-
-
-<style>
-  body {
-  margin: 40px;
-  font: 80% Arial, Helvetica, sans-serif;
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lupil | Gamer & Game Dev Profile</title>
+  <meta name="description" content="Personal gamer profile, accomplishments, niche finds, and game dev projects of Lupil.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   
-}
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM & THEME TOKENS
+       ========================================================================== */
+    :root {
+      /* Dark Theme Default */
+      --bg-gradient: radial-gradient(circle at 50% 0%, #171c2d 0%, #0b0f19 75%);
+      --bg-color: #0b0f19;
+      --card-bg: rgba(22, 28, 45, 0.75);
+      --card-bg-hover: rgba(30, 39, 64, 0.9);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(168, 85, 247, 0.4);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --accent-purple: #a855f7;
+      --accent-indigo: #6366f1;
+      --accent-cyan: #06b6d4;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
 
-.wrapper {
-  display: grid;
-  background: no-repeat url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/12005/grid.png);
-  grid-gap: 10px;
-  grid-template-columns:  repeat(6, 150px);
-  grid-template-rows: repeat( 4, 150px);
-  background-color: #fff;
-  color: #444;
-}
+      /* Status Colors */
+      --status-active-bg: rgba(16, 185, 129, 0.15);
+      --status-active-border: rgba(16, 185, 129, 0.35);
+      --status-active-text: #34d399;
 
-.box {
-  border: 1px solid #444;
-  padding: 20px;
-  font-size: 150%;
-}
+      --status-occ-bg: rgba(6, 182, 212, 0.15);
+      --status-occ-border: rgba(6, 182, 212, 0.35);
+      --status-occ-text: #38bdf8;
 
+      --status-niche-bg: rgba(245, 158, 11, 0.15);
+      --status-niche-border: rgba(245, 158, 11, 0.35);
+      --status-niche-text: #fbbf24;
 
+      --status-comp-bg: rgba(168, 85, 247, 0.15);
+      --status-comp-border: rgba(168, 85, 247, 0.35);
+      --status-comp-text: #c084fc;
 
-.a {
-  grid-column: 1 / 3;
-  grid-row: 1 / 3;
-  justify-self: stretch;
-}
+      --status-ret-bg: rgba(244, 63, 94, 0.12);
+      --status-ret-border: rgba(244, 63, 94, 0.25);
+      --status-ret-text: #fb7185;
 
-.b {
-  grid-column: 3 / 5;
-  grid-row: 1 / 3;
-  justify-self: end;
-}
+      --shadow-color: rgba(0, 0, 0, 0.4);
+      --glow-color: rgba(168, 85, 247, 0.2);
+      --toggle-bg: rgba(255, 255, 255, 0.1);
+      --toggle-border: rgba(255, 255, 255, 0.15);
+      --grid-pattern: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    }
 
-.c {
-  grid-column: 1 / 3;
-  grid-row: 3 /  6;
-  justify-self: start;
-}
+    [data-theme="light"] {
+      --bg-gradient: radial-gradient(circle at 50% 0%, #f8fafc 0%, #e2e8f0 75%);
+      --bg-color: #e2e8f0;
+      --card-bg: rgba(255, 255, 255, 0.88);
+      --card-bg-hover: rgba(255, 255, 255, 1);
+      --card-border: rgba(0, 0, 0, 0.08);
+      --card-border-hover: rgba(124, 58, 237, 0.35);
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-dim: #64748b;
+      
+      --accent-purple: #7c3aed;
+      --accent-indigo: #4f46e5;
+      --accent-cyan: #0891b2;
+      --accent-emerald: #059669;
+      --accent-amber: #d97706;
+      --accent-rose: #e11d48;
 
-.d {
-  grid-column: 3 / 5;
-  grid-row: 3 / 6;
-  justify-self: center;
-}
+      --status-active-bg: rgba(5, 150, 105, 0.1);
+      --status-active-border: rgba(5, 150, 105, 0.3);
+      --status-active-text: #047857;
 
-.e {
-  grid-column: 5 / 7;
-  grid-row: 1 / 6;
-  align-self: stretch;
-}
-</style>
+      --status-occ-bg: rgba(8, 145, 178, 0.1);
+      --status-occ-border: rgba(8, 145, 178, 0.3);
+      --status-occ-text: #0e7490;
 
-<!-- <script>
-    $(document).ready(function() {
-        $('.start').removeClass('start');  
+      --status-niche-bg: rgba(217, 119, 6, 0.1);
+      --status-niche-border: rgba(217, 119, 6, 0.3);
+      --status-niche-text: #b45309;
+
+      --status-comp-bg: rgba(124, 58, 237, 0.1);
+      --status-comp-border: rgba(124, 58, 237, 0.3);
+      --status-comp-text: #6d28d9;
+
+      --status-ret-bg: rgba(225, 29, 72, 0.08);
+      --status-ret-border: rgba(225, 29, 72, 0.25);
+      --status-ret-text: #be123c;
+
+      --shadow-color: rgba(15, 23, 42, 0.08);
+      --glow-color: rgba(124, 58, 237, 0.15);
+      --toggle-bg: rgba(15, 23, 42, 0.08);
+      --toggle-border: rgba(15, 23, 42, 0.15);
+      --grid-pattern: radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-color);
+      background-image: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1.5rem 4rem;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: var(--grid-pattern);
+      background-size: 24px 24px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.8;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 1240px;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-logo-small {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-purple);
+      object-fit: cover;
+    }
+
+    .brand-title {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--text-main), var(--text-muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .theme-toggle-btn {
+      background: var(--toggle-bg);
+      border: 1px solid var(--toggle-border);
+      color: var(--text-main);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 12px var(--shadow-color);
+    }
+
+    .theme-toggle-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-purple);
+      box-shadow: 0 6px 16px var(--glow-color);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 2.5rem;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 40px var(--shadow-color);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::after {
+      content: "";
+      position: absolute;
+      top: -50%; right: -20%;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, var(--accent-purple) 0%, transparent 70%);
+      opacity: 0.15; filter: blur(50px);
+      pointer-events: none;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .avatar-gif {
+      width: 140px;
+      height: 140px;
+      border-radius: 24px;
+      object-fit: cover;
+      border: 3px solid var(--accent-purple);
+      box-shadow: 0 0 25px var(--glow-color);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .avatar-wrapper:hover .avatar-gif {
+      transform: scale(1.05) rotate(2deg);
+      box-shadow: 0 0 35px var(--accent-purple);
+    }
+
+    .status-dot {
+      position: absolute;
+      bottom: -4px; right: -4px;
+      width: 22px; height: 22px;
+      background-color: var(--accent-emerald);
+      border: 3.5px solid var(--bg-color);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent-emerald);
+    }
+
+    .hero-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .hero-title-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .waving-hand {
+      display: inline-block;
+      font-size: 2rem;
+      animation: wave 2.2s infinite;
+      transform-origin: 70% 70%;
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: rotate(0deg); }
+      10% { transform: rotate(14deg); }
+      20% { transform: rotate(-8deg); }
+      30% { transform: rotate(14deg); }
+      40% { transform: rotate(-4deg); }
+      50% { transform: rotate(10deg); }
+    }
+
+    .hero-name {
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .hero-tagline {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 680px;
+    }
+
+    .badge-group {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .id-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 0.5rem 0.9rem;
+      border-radius: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .id-badge:hover {
+      border-color: var(--accent-purple);
+      background: var(--toggle-bg);
+      transform: translateY(-2px);
+    }
+
+    .id-badge.discord {
+      background: var(--status-comp-bg);
+      border-color: var(--status-comp-border);
+      color: var(--status-comp-text);
+    }
+
+    .id-badge.valo {
+      background: var(--status-ret-bg);
+      border-color: var(--status-ret-border);
+      color: var(--status-ret-text);
+    }
+
+    .toast-popup {
+      position: absolute;
+      top: -36px; left: 50%;
+      transform: translateX(-50%) translateY(5px);
+      background: var(--accent-emerald);
+      color: #fff;
+      font-size: 0.75rem;
+      font-family: 'Outfit', sans-serif;
+      padding: 0.3rem 0.65rem;
+      border-radius: 6px;
+      font-weight: 600;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .toast-popup.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      margin-top: 0.25rem;
+    }
+
+    /* Filter Pills & Navigation */
+    .controls-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-tabs {
+      display: flex;
+      background: var(--card-bg);
+      padding: 0.3rem;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      gap: 0.3rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.45rem 0.85rem;
+      border-radius: 9px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--accent-purple);
+      color: #fff;
+      box-shadow: 0 4px 12px var(--glow-color);
+    }
+
+    .arrow-btn {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .arrow-btn:hover {
+      background: var(--card-bg-hover);
+      border-color: var(--accent-purple);
+      color: var(--accent-purple);
+    }
+
+    /* Cards Scroll Horizontal Container */
+    .cards-scroll-container {
+      display: flex;
+      gap: 1.35rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 0.5rem 0.25rem 1.5rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-purple) transparent;
+    }
+
+    .cards-scroll-container::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .cards-scroll-container::-webkit-scrollbar-thumb {
+      background-color: var(--accent-purple);
+      border-radius: 10px;
+    }
+
+    /* Game Card */
+    .game-card {
+      flex: 0 0 310px;
+      scroll-snap-align: start;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.2rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 25px var(--shadow-color);
+      position: relative;
+    }
+
+    .game-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--card-border-hover);
+      box-shadow: 0 18px 30px var(--glow-color);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .status-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .status-badge.active { background: var(--status-active-bg); border: 1px solid var(--status-active-border); color: var(--status-active-text); }
+    .status-badge.occasional { background: var(--status-occ-bg); border: 1px solid var(--status-occ-border); color: var(--status-occ-text); }
+    .status-badge.niche { background: var(--status-niche-bg); border: 1px solid var(--status-niche-border); color: var(--status-niche-text); }
+    .status-badge.completed { background: var(--status-comp-bg); border: 1px solid var(--status-comp-border); color: var(--status-comp-text); }
+    .status-badge.retired { background: var(--status-ret-bg); border: 1px solid var(--status-ret-border); color: var(--status-ret-text); }
+
+    .game-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .game-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .game-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .stat-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent-purple);
+      font-weight: 600;
+    }
+
+    .card-body {
+      background: rgba(0, 0, 0, 0.12);
+      border-radius: 12px;
+      padding: 0.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .funny-note {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.45;
+      font-style: italic;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      font-weight: 500;
+      border-top: 1px dashed var(--card-border);
+      padding-top: 0.65rem;
+    }
+
+    /* Grid Sections for Projects & Friends */
+    .grid-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 1.75rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 25px var(--shadow-color);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .feature-card:hover {
+      border-color: var(--accent-purple);
+      transform: translateY(-4px);
+    }
+
+    .feature-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .feature-icon {
+      font-size: 1.75rem;
+    }
+
+    .feature-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tag-pill {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+    }
+
+    /* Secret / Easter Egg Drawer */
+    .secret-trigger-btn {
+      background: transparent;
+      border: 1px dashed var(--card-border);
+      color: var(--text-dim);
+      padding: 0.75rem 1.25rem;
+      border-radius: 14px;
+      cursor: pointer;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    .secret-trigger-btn:hover {
+      border-color: var(--accent-purple);
+      color: var(--accent-purple);
+    }
+
+    .secret-box {
+      display: none;
+      background: var(--card-bg);
+      border: 1px solid var(--accent-purple);
+      border-radius: 16px;
+      padding: 1.25rem;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.875rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--card-border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    footer code {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent-purple);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      body { padding: 1.25rem 1rem 3rem; }
+      .hero-section { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; padding: 1.75rem; }
+      .avatar-wrapper { margin: 0 auto; }
+      .avatar-gif { width: 110px; height: 110px; }
+      .hero-title-row, .badge-group { justify-content: center; }
+      .hero-name { font-size: 2rem; }
+      .section-header { flex-direction: column; align-items: flex-start; }
+      .controls-wrapper { width: 100%; justify-content: space-between; }
+      .filter-tabs { overflow-x: auto; width: 100%; }
+      .game-card { flex: 0 0 280px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Navigation Header -->
+    <header>
+      <div class="brand">
+        <img class="brand-logo-small" src="https://raw.githubusercontent.com/Lupilgaming/mySite/master/a1.gif" alt="Lupil Avatar">
+        <span class="brand-title">Lupil.gg</span>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle theme">
+        <span id="themeIcon">🌙</span>
+        <span id="themeLabel">Dark</span>
+      </button>
+    </header>
+
+    <!-- Hero Profile Section -->
+    <section class="hero-section">
+      <div class="avatar-wrapper">
+        <img class="avatar-gif" src="https://raw.githubusercontent.com/Lupilgaming/mySite/master/a1.gif" alt="Lupil Personal Logo GIF">
+        <div class="status-dot" title="Online in game"></div>
+      </div>
+
+      <div class="hero-info">
+        <div class="hero-title-row">
+          <span class="waving-hand">👋</span>
+          <h1 class="hero-name">Hi, I'm Lupil</h1>
+        </div>
+
+        <p class="hero-tagline">
+          Gamer, casual sweat, niche finder, and hobbyist game creator. Welcome to my gaming portfolio — where accomplishments are peak, excuses are elite, and local prototypes are always in development.
+        </p>
+
+        <!-- Quick Copy Badges -->
+        <div class="badge-group">
+          <!-- Discord Badge -->
+          <button class="id-badge discord" onclick="copyText('lupil1410_74322', 'toastDiscord')" title="Copy Discord Tag">
+            <svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 127.14 96.36">
+              <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a73.51,73.51,0,0,0,64.32,0c.87.69,1.76,1.37,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77.46,77.46,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22c2.63-27.42-4.83-51.13-18.9-72.15ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74C48.86,40.23,54,45.92,53.86,53,53.86,60,48.8,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74C91.13,40.23,96.28,45.92,96.14,53,96.14,60,91.07,65.69,84.69,65.69Z"/>
+            </svg>
+            <span>Discord: lupil1410_74322</span>
+            <span class="toast-popup" id="toastDiscord">Copied Discord ID! ✨</span>
+          </button>
+
+          <!-- Valorant ID Badge -->
+          <button class="id-badge valo" onclick="copyText('u53#not', 'toastValo')" title="Copy Valorant ID">
+            <span>🎯 Valo ID: u53#not</span>
+            <span class="toast-popup" id="toastValo">Copied Valorant ID! 🎯</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Games Showcase Section -->
+    <section>
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">🎮 Games Showcase</h2>
+          <p class="section-subtitle">Categorized by activity status & completion achievements</p>
+        </div>
+
+        <div class="controls-wrapper">
+          <!-- Status Filter Tabs -->
+          <div class="filter-tabs">
+            <button class="filter-btn active" onclick="filterStatus('all')">All</button>
+            <button class="filter-btn" onclick="filterStatus('active')">🔥 Active</button>
+            <button class="filter-btn" onclick="filterStatus('occasional')">⚡ Occasional</button>
+            <button class="filter-btn" onclick="filterStatus('niche')">💎 Niche Finds</button>
+            <button class="filter-btn" onclick="filterStatus('completed')">🏆 Completed</button>
+            <button class="filter-btn" onclick="filterStatus('retired')">📦 Retired</button>
+          </div>
+
+          <!-- Carousel Controls -->
+          <div style="display:flex;gap:0.4rem;">
+            <button class="arrow-btn" onclick="scrollCarousel(-330)" aria-label="Scroll left">←</button>
+            <button class="arrow-btn" onclick="scrollCarousel(330)" aria-label="Scroll right">→</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Horizontal Cards Scroll Container -->
+      <div class="cards-scroll-container" id="cardsContainer">
+
+        <!-- 🔥 ACTIVE GAMES -->
+
+        <!-- Valorant -->
+        <article class="game-card" data-status="active">
+          <div class="card-top">
+            <span class="status-badge active">🔥 ACTIVE</span>
+            <span class="game-icon">🎯</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Valorant</h3>
+            <span class="stat-tag">Peak D1 • ID: u53#not</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Instalocking Reyna, blaming line-ups, and hitting Diamond 1 by pure unadulterated ego."</p>
+          </div>
+          <div class="card-footer">
+            <span>TACTICAL FPS</span>
+            <span>RANKED GRIND</span>
+          </div>
+        </article>
+
+        <!-- Clash Royale -->
+        <article class="game-card" data-status="active">
+          <div class="card-top">
+            <span class="status-badge active">🔥 ACTIVE</span>
+            <span class="game-icon">👑</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Clash Royale</h3>
+            <span class="stat-tag">14k Trophies • Grand Champ</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Emote spamming Mega Knight bridge drop is a valid tactical masterclass."</p>
+          </div>
+          <div class="card-footer">
+            <span>STRATEGY</span>
+            <span>GRAND CHAMP</span>
+          </div>
+        </article>
+
+        <!-- ⚡ OCCASIONAL GAMES -->
+
+        <!-- Counter-Strike -->
+        <article class="game-card" data-status="occasional">
+          <div class="card-top">
+            <span class="status-badge occasional">⚡ OCCASIONAL</span>
+            <span class="game-icon">💥</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Counter-Strike</h3>
+            <span class="stat-tag">Best FPS game out there ?</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"AK-47 spray control is temporary, economic ruin every 3rd round is forever."</p>
+          </div>
+          <div class="card-footer">
+            <span>TACTICAL FPS</span>
+            <span>THE GOAT</span>
+          </div>
+        </article>
+
+        <!-- Marvel Rivals -->
+        <article class="game-card" data-status="occasional">
+          <div class="card-top">
+            <span class="status-badge occasional">⚡ OCCASIONAL</span>
+            <span class="game-icon">🐍</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Marvel Rivals</h3>
+            <span class="stat-tag">Went Gold 🥇 • I am Loki</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Liked the hero shooter concept — maining Loki and bamboozling enemies into confusion."</p>
+          </div>
+          <div class="card-footer">
+            <span>HERO SHOOTER</span>
+            <span>GOLD RANKED</span>
+          </div>
+        </article>
+
+        <!-- Stumble Guys -->
+        <article class="game-card" data-status="occasional">
+          <div class="card-top">
+            <span class="status-badge occasional">⚡ OCCASIONAL</span>
+            <span class="game-icon">🏃‍♂️</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Stumble Guys</h3>
+            <span class="stat-tag">Helps Beat the Heat ☀️</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Pure chaotic knockout madness. The ultimate chill game to beat summer heat."</p>
+          </div>
+          <div class="card-footer">
+            <span>PARTY ROYALE</span>
+            <span>CHILL VIBES</span>
+          </div>
+        </article>
+
+        <!-- Asphalt 8 / 9 -->
+        <article class="game-card" data-status="occasional">
+          <div class="card-top">
+            <span class="status-badge occasional">⚡ OCCASIONAL</span>
+            <span class="game-icon">🏎️</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Asphalt 8 / 9</h3>
+            <span class="stat-tag">Arcade Speedster</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Legends gotta keep going back on the run. Nitro barrel rolls never get old."</p>
+          </div>
+          <div class="card-footer">
+            <span>ARCADE RACING</span>
+            <span>LEGENDS RETURN</span>
+          </div>
+        </article>
+
+        <!-- 💎 NICHE FINDS -->
+
+        <!-- Monoposto -->
+        <article class="game-card" data-status="niche">
+          <div class="card-top">
+            <span class="status-badge niche">💎 NICHE FIND</span>
+            <span class="game-icon">🏎️</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Monoposto</h3>
+            <span class="stat-tag">Zero AI Assist Cleared</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Completed full races with 0 AI assists. A bit slow on total lap time... but NOT on the apex turns ;) "</p>
+          </div>
+          <div class="card-footer">
+            <span>FORMULA RACING</span>
+            <span>SIM ENTHUSIAST</span>
+          </div>
+        </article>
+
+        <!-- Skate 3 -->
+        <article class="game-card" data-status="niche">
+          <div class="card-top">
+            <span class="rank-badge niche" style="background:var(--status-niche-bg);color:var(--status-niche-text);border-color:var(--status-niche-border)">💎 NICHE FIND</span>
+            <span class="game-icon">🛹</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Skate 3</h3>
+            <span class="stat-tag">W Timepass 🏆</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Fking loved the flickit physics & ragdoll mechanics — absolute top tier timepass."</p>
+          </div>
+          <div class="card-footer">
+            <span>SKATEBOARDING</span>
+            <span>PHYSICS KING</span>
+          </div>
+        </article>
+
+        <!-- Spider Fighter 3 -->
+        <article class="game-card" data-status="niche">
+          <div class="card-top">
+            <span class="status-badge niche">💎 NICHE FIND</span>
+            <span class="game-icon">🕸️</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Spider Fighter 3</h3>
+            <span class="stat-tag">Very Occasional Slinger</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Loved the smooth indie brawler combat — occasional city swinging session."</p>
+          </div>
+          <div class="card-footer">
+            <span>INDIE ACTION</span>
+            <span>HIDDEN GEM</span>
+          </div>
+        </article>
+
+        <!-- Neomonsters -->
+        <article class="game-card" data-status="niche">
+          <div class="card-top">
+            <span class="status-badge niche">💎 NICHE FIND</span>
+            <span class="game-icon">👾</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Neomonsters</h3>
+            <span class="stat-tag">All Offline + 8 Online Ch.</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Gacha RNG hurt my feelings deeply, but the monster fusion grind was a true niche gem."</p>
+          </div>
+          <div class="card-footer">
+            <span>TURN RPG</span>
+            <span>GRIND LORD</span>
+          </div>
+        </article>
+
+        <!-- 🏆 COMPLETED GAMES -->
+
+        <!-- Astro Bot -->
+        <article class="game-card" data-status="completed">
+          <div class="card-top">
+            <span class="status-badge completed">🏆 COMPLETED</span>
+            <span class="game-icon">🤖</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Astro Bot (PS5)</h3>
+            <span class="stat-tag">Hehe Fun 🤖</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Pure platformer joy & haptic magic. Absolute masterpiece from start to finish."</p>
+          </div>
+          <div class="card-footer">
+            <span>PS5 PLATFORMER</span>
+            <span>PURE JOY</span>
+          </div>
+        </article>
+
+        <!-- It Takes Two -->
+        <article class="game-card" data-status="completed">
+          <div class="card-top">
+            <span class="status-badge completed">🏆 COMPLETED</span>
+            <span class="game-icon">🧩</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">It Takes Two</h3>
+            <span class="stat-tag">W Game 🏆</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Peak co-op masterpiece. The elephant scene left permanent emotional damage."</p>
+          </div>
+          <div class="card-footer">
+            <span>CO-OP ADVENTURE</span>
+            <span>GOTY WINNER</span>
+          </div>
+        </article>
+
+        <!-- Pokemon Sapphire -->
+        <article class="game-card" data-status="completed">
+          <div class="card-top">
+            <span class="status-badge completed">🏆 COMPLETED</span>
+            <span class="game-icon">🌊</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Pokémon Sapphire</h3>
+            <span class="stat-tag">Post-Champ Missions Done</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"7.8/10 too much water, but Kyogre carried my entire childhood through Hoenn."</p>
+          </div>
+          <div class="card-footer">
+            <span>GBA RPG</span>
+            <span>HOENN CHAMP</span>
+          </div>
+        </article>
+
+        <!-- Pokemon Light Platinum -->
+        <article class="game-card" data-status="completed">
+          <div class="card-top">
+            <span class="status-badge completed">🏆 COMPLETED</span>
+            <span class="game-icon">🐉</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Pokémon Light Platinum</h3>
+            <span class="stat-tag">Finished (Max Mon < LV69)</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Underleveled, overconfident, and spamming Max Revives against the Elite Four."</p>
+          </div>
+          <div class="card-footer">
+            <span>ROM HACK</span>
+            <span>LEVEL CAP FLEX</span>
+          </div>
+        </article>
+
+        <!-- Pokemon Stadium 2 -->
+        <article class="game-card" data-status="completed">
+          <div class="card-top">
+            <span class="status-badge completed">🏆 COMPLETED</span>
+            <span class="game-icon">🎮</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Pokémon Stadium 2</h3>
+            <span class="stat-tag">Won All Tournaments</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Metronome RNG was on my side and the N64 controller somehow survived."</p>
+          </div>
+          <div class="card-footer">
+            <span>N64 CLASSIC</span>
+            <span>ARENA SWEEPER</span>
+          </div>
+        </article>
+
+        <!-- 📦 RETIRED / BENCHED GAMES -->
+
+        <!-- Apex Legends -->
+        <article class="game-card" data-status="retired">
+          <div class="card-top">
+            <span class="status-badge retired">📦 RETIRED</span>
+            <span class="game-icon">⚡</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Apex Legends</h3>
+            <span class="stat-tag">Too much going on ?</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Third party gets third partied while I tap-strafe directly into lava. Benched."</p>
+          </div>
+          <div class="card-footer">
+            <span>BATTLE ROYALE</span>
+            <span>CHAOS RETIRED</span>
+          </div>
+        </article>
+
+        <!-- PUBG Mobile -->
+        <article class="game-card" data-status="retired">
+          <div class="card-top">
+            <span class="status-badge retired">📦 RETIRED</span>
+            <span class="game-icon">🪂</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">PUBG Mobile</h3>
+            <span class="stat-tag">Peak Diamond</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Fell out of a moving Dacia at full speed into a top 10 chicken dinner. Benched."</p>
+          </div>
+          <div class="card-footer">
+            <span>MOBILE BR</span>
+            <span>DACIA LEGEND</span>
+          </div>
+        </article>
+
+        <!-- CODM -->
+        <article class="game-card" data-status="retired">
+          <div class="card-top">
+            <span class="status-badge retired">📦 RETIRED</span>
+            <span class="game-icon">🔫</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">CODM</h3>
+            <span class="stat-tag">Played :)</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Slid into every doorway at Mach 2 speed, got sniped across Nuketown, had fun."</p>
+          </div>
+          <div class="card-footer">
+            <span>MOBILE FPS</span>
+            <span>GOOD MEMORIES</span>
+          </div>
+        </article>
+
+        <!-- Solo Leveling: Arise -->
+        <article class="game-card" data-status="retired">
+          <div class="card-top">
+            <span class="status-badge retired">📦 RETIRED / ON HOLD</span>
+            <span class="game-icon">⚔️</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Solo Leveling: Arise</h3>
+            <span class="stat-tag">20 Hours Logged</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Logged 20 hours of shadow monarch summoning — currently put on hold / retired."</p>
+          </div>
+          <div class="card-footer">
+            <span>ACTION RPG</span>
+            <span>SHADOW ARMY</span>
+          </div>
+        </article>
+
+        <!-- Century: Age of Ashes -->
+        <article class="game-card" data-status="retired">
+          <div class="card-top">
+            <span class="status-badge retired">📦 RETIRED</span>
+            <span class="game-icon">🐉</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Century: Age of Ashes</h3>
+            <span class="stat-tag">Dragon Rider</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Well, I have ridden a dragon... just haven't learnt how to control it ;) "</p>
+          </div>
+          <div class="card-footer">
+            <span>DRAGON DOGFIGHT</span>
+            <span>FLIGHT LESSONS</span>
+          </div>
+        </article>
+
+        <!-- Rainbow Six Siege -->
+        <article class="game-card" data-status="retired">
+          <div class="card-top">
+            <span class="status-badge retired">📦 RETIRED</span>
+            <span class="game-icon">🧱</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Rainbow Six Siege</h3>
+            <span class="stat-tag">WTAF Moment</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"WTAF am I supposed to do here ? Reinforced the wrong wall, got peeked through a bullet hole."</p>
+          </div>
+          <div class="card-footer">
+            <span>TACTICAL FPS</span>
+            <span>WALL CONFUSION</span>
+          </div>
+        </article>
+
+        <!-- Portal -->
+        <article class="game-card" data-status="retired">
+          <div class="card-top">
+            <span class="status-badge retired">📦 RETIRED</span>
+            <span class="game-icon">🌀</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Portal</h3>
+            <span class="stat-tag">Loved it, didn't finish 🍰</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"The cake is a lie, and so was my ability to solve momentum physics past level 14."</p>
+          </div>
+          <div class="card-footer">
+            <span>PUZZLE CLASSIC</span>
+            <span>GLaDOS W</span>
+          </div>
+        </article>
+
+        <!-- PUBG Lite -->
+        <article class="game-card" data-status="retired">
+          <div class="card-top">
+            <span class="status-badge retired">📦 RETIRED</span>
+            <span class="game-icon">🥔</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">PUBG Lite</h3>
+            <span class="stat-tag">Tried 🥔</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Tested potato-spec PC limits. 30 FPS render build hits different."</p>
+          </div>
+          <div class="card-footer">
+            <span>BR CLASSIC</span>
+            <span>POTATO SPEC</span>
+          </div>
+        </article>
+
+        <!-- Silent Retires -->
+        <article class="game-card" data-status="retired">
+          <div class="card-top">
+            <span class="status-badge retired">📦 SILENT RETIRES</span>
+            <span class="game-icon">🌙</span>
+          </div>
+          <div class="game-header">
+            <h3 class="game-title">Good Games, Silent Retires</h3>
+            <span class="stat-tag">Once Human • Palia • DW2</span>
+          </div>
+          <div class="card-body">
+            <p class="funny-note">"Once Human, Palia, Drunken Wrestlers 2 — silent retires, but genuinely great games while they lasted."</p>
+          </div>
+          <div class="card-footer">
+            <span>MULTI-GENRE</span>
+            <span>HONORABLE MENTION</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Hobbyist Game Creator & Local Projects Section -->
+    <section>
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">🛠️ Hobbyist Game Creator</h2>
+          <p class="section-subtitle">Personal game dev prototypes, local builds & mechanics experiments</p>
+        </div>
+      </div>
+
+      <div class="grid-section">
+        <div class="feature-card">
+          <div class="feature-card-header">
+            <span class="feature-icon">💻</span>
+            <div>
+              <h3 class="feature-title">Local Game Prototypes</h3>
+              <p class="section-subtitle">Under active iteration</p>
+            </div>
+          </div>
+          <p class="feature-desc">
+            Building custom game mechanics, physics controllers, and local prototypes. From ragdoll physics to turn-based combat systems.
+          </p>
+          <div class="project-tags">
+            <span class="tag-pill">Unity / Engine</span>
+            <span class="tag-pill">C# / Python</span>
+            <span class="tag-pill">Game Design</span>
+            <span class="tag-pill">Local Builds</span>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-header">
+            <span class="feature-icon">🤝</span>
+            <div>
+              <h3 class="feature-title">Friends' Creations & Links</h3>
+              <p class="section-subtitle">Cool indie games made by friends</p>
+            </div>
+          </div>
+          <p class="feature-desc">
+            Spotlighting awesome games and indie projects created by friends in the dev community.
+          </p>
+          <div class="project-tags">
+            <span class="tag-pill">Indie Dev</span>
+            <span class="tag-pill">Community Showcase</span>
+            <span class="tag-pill">Playable Demos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hidden VR & Sim Secret Drawer -->
+    <section>
+      <button class="secret-trigger-btn" onclick="toggleSecret()">
+        🤫 Secret Vault: Click to reveal VR & Racing Sim Plans
+      </button>
+      <div class="secret-box" id="secretBox">
+        <h4 style="color:var(--accent-purple);font-size:1.05rem;margin-bottom:0.4rem;">🥽 VR Games & Racing Simulators</h4>
+        <p>Tried & deeply loved VR titles and racing sims. Currently planning to set up a full motion cockpit / VR rig in the future! 🏎️💨</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© Lupil. Built with pure gamer energy & HTML/CSS/JS.</p>
+      <p>Repo: <code>lupilgaming.github.io</code></p>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // Theme Switcher
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeLabel = document.getElementById('themeLabel');
+    const htmlElem = document.documentElement;
+
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = htmlElem.getAttribute('data-theme');
+      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
     });
-</script> -->
+
+    function setTheme(theme) {
+      htmlElem.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      if (theme === 'dark') {
+        themeIcon.textContent = '🌙';
+        themeLabel.textContent = 'Dark';
+      } else {
+        themeIcon.textContent = '☀️';
+        themeLabel.textContent = 'Light';
+      }
+    }
+
+    // Copy Utility function for Badges
+    function copyText(text, toastId) {
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById(toastId);
+        if (toast) {
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2200);
+        }
+      });
+    }
+
+    // Scroll Carousel
+    function scrollCarousel(amount) {
+      const container = document.getElementById('cardsContainer');
+      container.scrollBy({ left: amount, behavior: 'smooth' });
+    }
+
+    // Filter Status Logic
+    function filterStatus(status) {
+      const cards = document.querySelectorAll('.game-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => {
+        if ((status === 'all' && btn.textContent.trim() === 'All') ||
+            btn.textContent.toLowerCase().includes(status)) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      cards.forEach(card => {
+        if (status === 'all' || card.dataset.status === status) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Secret Toggle
+    function toggleSecret() {
+      const box = document.getElementById('secretBox');
+      box.style.display = box.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
